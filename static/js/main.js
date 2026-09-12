@@ -12,7 +12,56 @@ document.addEventListener('DOMContentLoaded', () => {
     initWorkFilter();
     initParallaxEffects();
     initNavbarScroll();
+    initHeroRoleTypewriter();
 });
+
+/* ============================================
+   HERO ROLE TYPEWRITER ANIMATION
+   ============================================ */
+function initHeroRoleTypewriter() {
+    const roleElem = document.getElementById('role-typewriter');
+    if (!roleElem) return;
+
+    const roles = [
+        'Software Developer',
+        'UI/UX Designer',
+        'Robotics Engineer',
+        'Computer & Laptop Technician',
+        'Network Engineer'
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+
+    function type() {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            roleElem.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = 40;
+        } else {
+            roleElem.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 90;
+        }
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            typeSpeed = 2200;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typeSpeed = 400;
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    type();
+}
 
 /* ============================================
    PAGE TRANSITIONS (Smooth Multi-Page Routing)
