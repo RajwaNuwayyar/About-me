@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize modules
+    initMobileNav();
     initPageTransitions();
     initScrollProgress();
     initServiceAccordion();
@@ -146,6 +147,7 @@ function initServiceAccordion() {
    EXPERIENCE FLOATING HOVER PREVIEW (Cursor Following)
    ============================================ */
 function initExperienceFloatingPreview() {
+    if (window.innerWidth <= 768 || window.matchMedia('(hover: none)').matches) return;
     const expItems = document.querySelectorAll('.experience-item');
     const tooltip = document.getElementById('exp-floating-preview');
     const tooltipImg = document.getElementById('exp-preview-img');
@@ -242,6 +244,55 @@ function initWorkFilter() {
 }
 
 /* ============================================
+   MOBILE NAVIGATION
+   ============================================ */
+function initMobileNav() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu') || document.querySelector('.nav-center');
+    const navbar = document.getElementById('navbar');
+
+    if (!navToggle || !navMenu) return;
+
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navMenu.classList.toggle('open');
+        navToggle.classList.toggle('active', isOpen);
+        if (navbar) navbar.classList.toggle('nav-open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close mobile nav when clicking any nav link
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('open');
+            navToggle.classList.remove('active');
+            if (navbar) navbar.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close when clicking outside navbar
+    document.addEventListener('click', (e) => {
+        if (navbar && !navbar.contains(e.target)) {
+            navMenu.classList.remove('open');
+            navToggle.classList.remove('active');
+            navbar.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Reset when resizing back to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navMenu.classList.remove('open');
+            navToggle.classList.remove('active');
+            if (navbar) navbar.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+/* ============================================
    PARALLAX EFFECTS
    ============================================ */
 function initParallaxEffects() {
@@ -256,15 +307,20 @@ function initParallaxEffects() {
             window.requestAnimationFrame(() => {
                 const scrollY = window.scrollY;
                 const windowHeight = window.innerHeight;
+                const isMobile = window.innerWidth <= 768;
 
-                if (heroPhoto && scrollY < windowHeight) {
-                    const photoTranslate = scrollY * 0.2;
-                    heroPhoto.style.transform = `translateX(-50%) translateY(${photoTranslate}px)`;
+                if (heroPhoto) {
+                    if (!isMobile && scrollY < windowHeight) {
+                        const photoTranslate = scrollY * 0.2;
+                        heroPhoto.style.transform = `translateX(-50%) translateY(${photoTranslate}px)`;
+                    } else if (isMobile) {
+                        heroPhoto.style.transform = 'none';
+                    }
                 }
 
                 if (heroName && scrollY < windowHeight) {
-                    const nameTranslate = scrollY * 0.1;
-                    const nameOpacity = 1 - (scrollY / (windowHeight * 0.6));
+                    const nameTranslate = isMobile ? scrollY * 0.05 : scrollY * 0.1;
+                    const nameOpacity = 1 - (scrollY / (windowHeight * 0.7));
                     heroName.style.transform = `translateY(${nameTranslate}px)`;
                     heroName.style.opacity = Math.max(0, nameOpacity);
                 }
@@ -280,16 +336,23 @@ function initParallaxEffects() {
         }
     }, { passive: true });
 
-    // Mouse tilt on hero photo
+    // Mouse tilt on hero photo (desktop only)
     const heroSection = document.getElementById('hero');
     if (heroSection) {
         heroSection.addEventListener('mousemove', (e) => {
+            if (window.innerWidth <= 768) return;
             const rect = heroSection.getBoundingClientRect();
             const x = (e.clientX - rect.left) / rect.width - 0.5;
             const y = (e.clientY - rect.top) / rect.height - 0.5;
 
             if (heroPhoto) {
                 heroPhoto.style.transform = `translateX(calc(-50% + ${x * 12}px)) translateY(${y * 10}px)`;
+            }
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            if (heroPhoto && window.innerWidth <= 768) {
+                heroPhoto.style.transform = 'none';
             }
         });
     }
@@ -307,8 +370,11 @@ function initNavbarScroll() {
     window.addEventListener('scroll', () => {
         const currentScroll = window.scrollY;
 
+        // If mobile nav drawer is open, keep navbar visible
+        if (navbar.classList.contains('nav-open')) return;
+
         if (currentScroll > 80) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.92)';
+            navbar.style.background = 'rgba(255, 255, 255, 0.94)';
             navbar.style.boxShadow = '0 8px 30px rgba(0,0,0,0.06)';
         } else {
             navbar.style.background = 'rgba(255, 255, 255, 0.85)';
