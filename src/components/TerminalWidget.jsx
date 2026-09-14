@@ -152,7 +152,7 @@ BIO: ${portfolioData.personal.bio}`
               <span className="terminal-dot dot-yellow" />
               <span className="terminal-dot dot-green" />
             </div>
-            <span className="terminal-title">alex@cyber-workstation:~ (bash)</span>
+            <span className="terminal-title">command prompt</span>
             <span style={{ fontSize: '0.72rem', color: 'var(--accent-primary)', opacity: 0.8 }}>
               UTF-8 • TTY1
             </span>
@@ -171,7 +171,7 @@ BIO: ${portfolioData.personal.bio}`
 
             {/* Input Line */}
             <div className="terminal-input-row">
-              <span className="terminal-prompt">alex@cyber:~$</span>
+              <span className="terminal-prompt">C:\Users\Admin&gt;</span>
               <input
                 type="text"
                 value={inputVal}

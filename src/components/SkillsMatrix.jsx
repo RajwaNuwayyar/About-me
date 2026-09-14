@@ -74,15 +74,8 @@ export default function SkillsMatrix() {
                 >
                   <div className="skill-card-top">
                     <span className="skill-name">{skill.name}</span>
-                    <span className="skill-percent">{skill.level}%</span>
                   </div>
                   <p className="skill-desc">{skill.desc}</p>
-                  <div className="skill-progress-track">
-                    <div
-                      className="skill-progress-bar"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
                 </div>
               ))}
             </div>

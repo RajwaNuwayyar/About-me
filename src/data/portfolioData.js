@@ -2,6 +2,9 @@ import imgMan2Surakarta from '../assets/images/MAN.PNG';
 import imgBnspTkj from '../assets/images/certificate1.jpg';
 import imgPklBosse from '../assets/images/PKL BOSSE.jpg';
 
+import imgCert1 from '../assets/images/img20260910_01272890.jpg';
+import imgCert2 from '../assets/images/img20260910_01321870.jpg';
+
 import imgServiceUIUX from '../assets/images/spenso.jpg';
 import imgServiceFrontend from '../assets/images/bloomcare.jpg';
 import imgServiceWeb from '../assets/images/MAN DASH.PNG';
@@ -114,8 +117,8 @@ export const portfolioData = {
       },
       status: "Real Project",
       links: {
-        demo: "https://rajwanuwayyar.github.io/MAN-2-SURAKARTA-SURAT-MASUK-DAN-SURAT-KELUAR/",
-        github: "https://github.com/RajwaNuwayyar/MAN-2-SURAKARTA-SURAT-MASUK-DAN-SURAT-KELUAR",
+        demo: "https://github.com/RajwaNuwayyar/Sistem_Manajemen_persuratan_MAN_2_Surakarta",
+        github: "https://github.com/RajwaNuwayyar/Sistem_Manajemen_persuratan_MAN_2_Surakarta",
         docs: "#"
       },
       gradient: "from-cyan to-blue"
@@ -138,8 +141,8 @@ export const portfolioData = {
       },
       status: "Certified",
       links: {
-        demo: "#",
-        github: "https://github.com/RajwaNuwayyar",
+        cert1: imgCert1,
+        cert2: imgCert2,
         docs: "#"
       },
       gradient: "from-emerald to-cyan"

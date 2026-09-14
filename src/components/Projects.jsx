@@ -207,12 +207,40 @@ export default function Projects() {
                   {project.links?.demo && (
                     <a
                       href={project.links.demo}
+                      target="_blank"
+                      rel="noreferrer"
                       className="btn-icon"
                       style={{ width: '32px', height: '32px' }}
                       aria-label="Live Demo"
                       onClick={() => soundFx.click()}
                     >
                       <ExternalLink size={15} />
+                    </a>
+                  )}
+                  {project.links?.cert1 && (
+                    <a
+                      href={project.links.cert1}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-icon"
+                      style={{ width: '32px', height: '32px' }}
+                      aria-label="View Certificate 1"
+                      onClick={() => soundFx.click()}
+                    >
+                      <Award size={15} />
+                    </a>
+                  )}
+                  {project.links?.cert2 && (
+                    <a
+                      href={project.links.cert2}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-icon"
+                      style={{ width: '32px', height: '32px' }}
+                      aria-label="View Certificate 2"
+                      onClick={() => soundFx.click()}
+                    >
+                      <Award size={15} />
                     </a>
                   )}
                 </div>

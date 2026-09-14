@@ -25,18 +25,19 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch("https://formsubmit.co/ajax/rajwa1904@gmail.com", {
+      await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
+          access_key: "6877c33746662b82c865e960bc8a5a84",
           name: formData.name,
           email: formData.email,
           projectType: formData.projectType,
           message: formData.message,
-          _subject: `New Transmission from ${formData.name}`
+          subject: `New Transmission from ${formData.name}`
         })
       });
       soundFx.success();
