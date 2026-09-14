@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Bot, Code2, ArrowRight, Sparkles, Terminal, Activity, Cpu, Radio, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon, TiktokIcon, FacebookIcon } from './Icons';
-import { portfolioData } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
-const ROLES = [
+const ROLES_EN = [
   "Web Applications",
   "UI/UX Design Systems",
   "IT & Hardware Support",
@@ -12,8 +12,18 @@ const ROLES = [
   "Python Integrations"
 ];
 
+const ROLES_ID = [
+  "Aplikasi Web",
+  "Sistem Desain UI/UX",
+  "Dukungan IT & Hardware",
+  "Infrastruktur Jaringan",
+  "Integrasi Python"
+];
+
 export default function Hero({ onOpenSimulator }) {
+  const { language, portfolioData } = useLanguage();
   const { personal } = portfolioData;
+  const ROLES = language === 'id' ? ROLES_ID : ROLES_EN;
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -57,8 +67,8 @@ export default function Hero({ onOpenSimulator }) {
           {/* Left Column: Bio & Intro */}
           <div>
             <div className="badge badge-cyan" style={{ marginBottom: '1.25rem' }}>
-              <span className="badge-pulse-dot" />
-              <span>{personal.badge}</span>
+              <Terminal size={14} />
+              <span>{portfolioData.sections.hero.greeting}</span>
             </div>
 
             <h1 className="hero-title">
@@ -84,15 +94,9 @@ export default function Hero({ onOpenSimulator }) {
                 <ArrowRight size={17} />
               </a>
 
-              <button
-                className="btn btn-secondary"
-                onClick={() => {
-                  soundFx.servo();
-                  onOpenSimulator();
-                }}
-              >
-                <Bot size={18} style={{ color: 'var(--accent-primary)' }} />
-                <span>Launch Robot Lab</span>
+              <button className="btn btn-primary" onClick={onOpenSimulator} onMouseEnter={() => soundFx.hover()}>
+                <Sparkles size={18} />
+                <span>{portfolioData.sections.hero.start}</span>
               </button>
 
               <a
@@ -106,10 +110,10 @@ export default function Hero({ onOpenSimulator }) {
             </div>
 
             {/* Social Icons */}
-            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '2rem' }}>
-              <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono, monospace', marginRight: '0.25rem' }}>
-                CONNECT:
-              </span>
+            <div className="hero-socials" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '2rem' }}>
+            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', marginRight: '0.5rem', fontFamily: 'Space Grotesk, sans-serif' }}>
+              {portfolioData.sections.hero.connect}:
+            </span>
               {personal.socials.whatsapp && (
                 <a
                   href={personal.socials.whatsapp}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Bot, ArrowUp, Heart, Cpu, Activity, Mail } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon, TiktokIcon, FacebookIcon } from './Icons';
-import { portfolioData } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function Footer() {
+  const { portfolioData } = useLanguage();
   const [time, setTime] = useState('');
 
   useEffect(() => {

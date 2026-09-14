@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Bot, Volume2, VolumeX, Terminal, Menu, X, Command } from 'lucide-react';
 import { soundFx } from '../utils/soundFx';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar({ onOpenCommandPalette, soundMuted, onToggleSound }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +30,14 @@ export default function Navbar({ onOpenCommandPalette, soundMuted, onToggleSound
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems = language === 'id' ? [
+    { label: 'Beranda', href: '#home', id: 'home' },
+    { label: 'Lab Robotika', href: '#robotics', id: 'robotics' },
+    { label: 'Proyek', href: '#projects', id: 'projects' },
+    { label: 'Keahlian', href: '#skills', id: 'skills' },
+    { label: 'Terminal', href: '#terminal', id: 'terminal' },
+    { label: 'Kontak', href: '#contact', id: 'contact' }
+  ] : [
     { label: 'Home', href: '#home', id: 'home' },
     { label: 'Robotics Lab', href: '#robotics', id: 'robotics' },
     { label: 'Projects', href: '#projects', id: 'projects' },
@@ -69,6 +78,20 @@ export default function Navbar({ onOpenCommandPalette, soundMuted, onToggleSound
 
       {/* Quick Action Controls */}
       <div className="nav-actions">
+        {/* Language Toggle Switch */}
+        <div 
+          className="lang-toggle-switch"
+          onClick={() => {
+            soundFx.click();
+            setLanguage(language === 'en' ? 'id' : 'en');
+          }}
+          title={language === 'en' ? "Switch to Indonesian" : "Switch to English"}
+        >
+          <span className={`lang-label ${language === 'en' ? 'active' : ''}`}>EN</span>
+          <span className={`lang-label ${language === 'id' ? 'active' : ''}`}>ID</span>
+          <div className={`lang-slider ${language === 'id' ? 'right' : 'left'}`} />
+        </div>
+
         {/* Command Palette Trigger */}
         <button
           className="btn-icon"

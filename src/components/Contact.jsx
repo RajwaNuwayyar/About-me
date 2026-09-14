@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle2, Copy, MessageSquare, Bot } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon, WhatsappIcon, TiktokIcon, FacebookIcon } from './Icons';
-import { portfolioData } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function Contact() {
+  const { portfolioData, language } = useLanguage();
   const { personal } = portfolioData;
   const [copied, setCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -54,13 +55,13 @@ export default function Contact() {
         <div className="section-header">
           <div className="section-label">
             <Mail size={15} />
-            <span>Direct Transmission</span>
+            <span>{portfolioData.sections.contact.label}</span>
           </div>
           <h2 className="section-title">
-            Let's Build Something <span className="section-title-gradient">Extraordinary</span>
+            {portfolioData.sections.contact.title1} <span className="section-title-gradient">{portfolioData.sections.contact.title2}</span>
           </h2>
           <p className="section-subtitle">
-            Whether you need a high-performance web platform, an autonomous robotics solution, or low-level firmware engineering, my inbox is open.
+            {portfolioData.sections.contact.subtitle}
           </p>
         </div>
 
@@ -71,13 +72,15 @@ export default function Contact() {
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
               <div className="badge badge-emerald" style={{ marginBottom: '1rem' }}>
                 <span className="badge-pulse-dot" />
-                <span>COMMUNICATIONS ONLINE</span>
+                <span>{language === 'id' ? 'KOMUNIKASI ONLINE' : 'COMMUNICATIONS ONLINE'}</span>
               </div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem' }}>
-                Have a project or inquiry?
+                {language === 'id' ? 'Ada proyek atau pertanyaan?' : 'Have a project or inquiry?'}
               </h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: '1.6', marginBottom: '1.25rem' }}>
-                I am actively taking on ambitious software and robotics ventures, hardware consulting, and technical leadership roles.
+                {language === 'id' 
+                  ? 'Saya siap menerima tawaran pekerjaan pengembangan perangkat lunak, konsultasi, dan rekayasa.'
+                  : 'I am actively taking on ambitious software and robotics ventures, hardware consulting, and technical leadership roles.'}
               </p>
 
               {/* Copyable Email Box */}

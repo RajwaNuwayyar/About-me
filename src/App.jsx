@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CommandPalette from './components/CommandPalette';
 import { soundFx } from './utils/soundFx';
+import { LanguageProvider } from './context/LanguageContext';
 
 export default function App() {
   const [theme, setTheme] = useState('cyan');
@@ -55,7 +56,8 @@ export default function App() {
   };
 
   return (
-    <div className="portfolio-app-root">
+    <LanguageProvider>
+      <div className="portfolio-app-root">
       {/* Background Ambient Glows & Grid */}
       <div className="ambient-background">
         <div className="ambient-grid" />
@@ -96,5 +98,6 @@ export default function App() {
         onToggleSound={handleToggleSound}
       />
     </div>
+    </LanguageProvider>
   );
 }

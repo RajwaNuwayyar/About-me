@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Cpu, Globe, Terminal, Wrench } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function SkillsMatrix() {
-  const [activeCategory, setActiveCategory] = useState('robotics');
+  const { portfolioData } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState('web');
   const { skillsCategories } = portfolioData;
 
   const getIcon = (iconName) => {
@@ -24,14 +25,14 @@ export default function SkillsMatrix() {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-label">
-            <Cpu size={15} />
-            <span>Technical Capabilities</span>
+            <Terminal size={15} />
+            <span>{portfolioData.sections.skills.label}</span>
           </div>
           <h2 className="section-title">
-            Skills & <span className="section-title-gradient">Hardware Arsenal</span>
+            {portfolioData.sections.skills.title1} <span className="section-title-gradient">{portfolioData.sections.skills.title2}</span>
           </h2>
           <p className="section-subtitle">
-            From low-level embedded registers and kinematics solvers to reactive frontend rendering engines and distributed microservices.
+            {portfolioData.sections.skills.subtitle}
           </p>
         </div>
 

@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Bot, Play, RotateCcw, Radar, Cpu, Zap, Activity } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function RobotLab() {
+  const { portfolioData } = useLanguage();
   // Joint angles in degrees
   const [shoulder, setShoulder] = useState(-50);
   const [elbow, setElbow] = useState(105);
@@ -377,14 +379,14 @@ export default function RobotLab() {
         {/* Section Heading */}
         <div className="section-header">
           <div className="section-label">
-            <Cpu size={15} />
-            <span>Interactive Telemetry Lab</span>
+            <Bot size={15} />
+            <span>{portfolioData.sections.robotLab.label}</span>
           </div>
           <h2 className="section-title">
-            Kinematics & <span className="section-title-gradient">Robotic Simulator</span>
+            {portfolioData.sections.robotLab.title1} <span className="section-title-gradient">{portfolioData.sections.robotLab.title2}</span>
           </h2>
           <p className="section-subtitle">
-            Manipulate the 6-DOF robotic arm digital twin in real time. Test joint limits, inspect inverse kinematics coordinates, or trigger automated pick-and-place routines.
+            {portfolioData.sections.robotLab.subtitle}
           </p>
         </div>
 

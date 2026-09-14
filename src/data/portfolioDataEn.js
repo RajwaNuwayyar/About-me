@@ -213,5 +213,42 @@ export const portfolioData = {
     { command: "contact", desc: "Reveal contact channels and direct communication links" },
     { command: "theme <cyan|amber|violet|emerald>", desc: "Dynamically switch accent cyber theme" },
     { command: "clear", desc: "Wipe terminal output screen" }
-  ]
+  ],
+
+  sections: {
+    hero: { greeting: "HELLO WORLD", start: "START EXPLORING", connect: "CONNECT WITH ME" },
+    robotLab: {
+      label: "Interactive Robotics Lab",
+      title1: "Interactive ",
+      title2: "Robotics Sandbox",
+      subtitle: "Test 6-DOF robotic arm inverse kinematics and interact with the real-time physics simulation right in your browser."
+    },
+    projects: {
+      label: "Engineered Systems",
+      title1: "Featured ",
+      title2: "Projects",
+      subtitle: "A curated showcase of autonomous hardware, high-throughput cloud dashboards, and cross-platform desktop applications.",
+      filters: {
+        all: "All", robotics: "Robotics & Hardware", web: "Web & Fullstack", apps: "Apps & Tools", certificate: "Certificate", exploration: "Exploration"
+      }
+    },
+    skills: {
+      label: "Technical Architecture",
+      title1: "Skills & ",
+      title2: "Competencies",
+      subtitle: "A breakdown of technical proficiencies across software development, hardware engineering, and industrial robotics."
+    },
+    experience: {
+      label: "Engineering Track Record",
+      title1: "Career & ",
+      title2: "Milestones",
+      subtitle: "A journey bridging software architecture, robotic automation, and hardware-software co-design."
+    },
+    contact: {
+      label: "Secure Transmission Channel",
+      title1: "Let's Build Something ",
+      title2: "Extraordinary",
+      subtitle: "Whether you need a high-performance web platform, an autonomous robotics solution, or low-level firmware engineering, my inbox is open."
+    }
+  }
 };

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Bot, Layers, Cpu, Terminal, Mail, Palette, Volume2, ArrowRight, X, MessageCircle, Share2, Globe } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function CommandPalette({ isOpen, onClose, onThemeChange, onToggleSound }) {
+  const { portfolioData, language, setLanguage } = useLanguage();
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef(null);
