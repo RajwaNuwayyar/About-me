@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import { Cpu, Globe, Terminal, Wrench } from 'lucide-react';
-=======
 import { Cpu, Globe, Terminal, Wrench, Database, Cloud, Code, PenTool } from 'lucide-react';
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
 import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function SkillsMatrix() {
   const { portfolioData } = useLanguage();
-<<<<<<< HEAD
-  const [activeCategory, setActiveCategory] = useState('web');
-=======
   const [activeCategory, setActiveCategory] = useState('robotics');
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
   const { skillsCategories } = portfolioData;
 
   const getIcon = (iconName) => {

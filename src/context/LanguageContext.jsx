@@ -1,22 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-<<<<<<< HEAD
-import { portfolioData as portfolioDataEn } from '../data/portfolioDataEn';
-=======
 import { portfolioDataEn } from '../data/portfolioDataEn';
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
 import { portfolioDataId } from '../data/portfolioDataId';
 
 const LanguageContext = createContext();
 
-<<<<<<< HEAD
-export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState(() => {
-    return localStorage.getItem('app_language') || 'en';
-  });
-
-  useEffect(() => {
-    localStorage.setItem('app_language', language);
-=======
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(() => {
     return localStorage.getItem('language') || 'en';
@@ -24,7 +11,6 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     localStorage.setItem('language', language);
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
   }, [language]);
 
   const portfolioData = language === 'id' ? portfolioDataId : portfolioDataEn;
@@ -34,11 +20,6 @@ export function LanguageProvider({ children }) {
       {children}
     </LanguageContext.Provider>
   );
-<<<<<<< HEAD
-};
-
-export const useLanguage = () => useContext(LanguageContext);
-=======
 }
 
 export function useLanguage() {
@@ -48,4 +29,3 @@ export function useLanguage() {
   }
   return context;
 }
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73

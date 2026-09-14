@@ -236,21 +236,6 @@ export const portfolioDataEn = {
       label: "Technical Architecture",
       title1: "Skills & ",
       title2: "Competencies",
-<<<<<<< HEAD
-      subtitle: "A breakdown of technical proficiencies across software development, hardware engineering, and industrial robotics."
-    },
-    experience: {
-      label: "Engineering Track Record",
-      title1: "Career & ",
-      title2: "Milestones",
-      subtitle: "A journey bridging software architecture, robotic automation, and hardware-software co-design."
-    },
-    contact: {
-      label: "Secure Transmission Channel",
-      title1: "Let's Build Something ",
-      title2: "Extraordinary",
-      subtitle: "Whether you need a high-performance web platform, an autonomous robotics solution, or low-level firmware engineering, my inbox is open."
-=======
       subtitle: "A breakdown of technical proficiencies across software development, IT support, network systems, and UI/UX design."
     },
     experience: {
@@ -264,7 +249,6 @@ export const portfolioDataEn = {
       title1: "Initiate ",
       title2: "Contact",
       subtitle: "Secure line open. Whether it's a project inquiry, technical consultation, or just to say hi—send a transmission."
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
     }
   }
 };

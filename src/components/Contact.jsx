@@ -5,11 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function Contact() {
-<<<<<<< HEAD
   const { portfolioData, language } = useLanguage();
-=======
-  const { portfolioData } = useLanguage();
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
   const { personal } = portfolioData;
   const [copied, setCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);

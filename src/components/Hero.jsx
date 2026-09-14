@@ -94,9 +94,6 @@ export default function Hero({ onOpenSimulator }) {
                 <ArrowRight size={17} />
               </a>
 
-<<<<<<< HEAD
-              <button className="btn btn-primary" onClick={onOpenSimulator} onMouseEnter={() => soundFx.hover()}>
-=======
               <button
                 className="btn btn-primary"
                 onClick={() => {
@@ -105,7 +102,6 @@ export default function Hero({ onOpenSimulator }) {
                 }}
                 onMouseEnter={() => soundFx.hover()}
               >
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
                 <Sparkles size={18} />
                 <span>{portfolioData.sections.hero.start}</span>
               </button>
@@ -122,15 +118,9 @@ export default function Hero({ onOpenSimulator }) {
 
             {/* Social Icons */}
             <div className="hero-socials" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '2rem' }}>
-<<<<<<< HEAD
-            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', marginRight: '0.5rem', fontFamily: 'Space Grotesk, sans-serif' }}>
-              {portfolioData.sections.hero.connect}:
-            </span>
-=======
               <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', marginRight: '0.5rem', fontFamily: 'Space Grotesk, sans-serif' }}>
                 {portfolioData.sections.hero.connect}:
               </span>
->>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
               {personal.socials.whatsapp && (
                 <a
                   href={personal.socials.whatsapp}
