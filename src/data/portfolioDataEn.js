@@ -15,7 +15,7 @@ import imgKartasura from '../assets/images/SMPN 3 Kartasura.jpg';
 import imgSawit from '../assets/images/1 sawit.jpg';
 import imgUDB from '../assets/images/UDB.jpg';
 
-export const portfolioData = {
+export const portfolioDataEn = {
   personal: {
     name: "Rajwa Nuwayyar Saif Lawahidz",
     role: "Software Developer & IT Specialist",
@@ -213,5 +213,42 @@ export const portfolioData = {
     { command: "contact", desc: "Reveal contact channels and direct communication links" },
     { command: "theme <cyan|amber|violet|emerald>", desc: "Dynamically switch accent cyber theme" },
     { command: "clear", desc: "Wipe terminal output screen" }
-  ]
+  ],
+
+  sections: {
+    hero: { greeting: "HELLO WORLD", start: "START EXPLORING", connect: "CONNECT WITH ME" },
+    robotLab: {
+      label: "Interactive Robotics Lab",
+      title1: "Interactive ",
+      title2: "Robotics Sandbox",
+      subtitle: "Test 6-DOF robotic arm inverse kinematics and interact with the real-time physics simulation right in your browser."
+    },
+    projects: {
+      label: "Engineered Systems",
+      title1: "Featured ",
+      title2: "Projects",
+      subtitle: "A curated showcase of autonomous hardware, high-throughput cloud dashboards, and cross-platform desktop applications.",
+      filters: {
+        all: "All", robotics: "Robotics & Hardware", web: "Web & Fullstack", apps: "Apps & Tools", certificate: "Certificate", exploration: "Exploration"
+      }
+    },
+    skills: {
+      label: "Technical Architecture",
+      title1: "Skills & ",
+      title2: "Competencies",
+      subtitle: "A breakdown of technical proficiencies across software development, IT support, network systems, and UI/UX design."
+    },
+    experience: {
+      label: "Professional Journey",
+      title1: "Experience & ",
+      title2: "Education",
+      subtitle: "Academic timeline and technical exploration milestones."
+    },
+    contact: {
+      label: "Transmission Protocol",
+      title1: "Initiate ",
+      title2: "Contact",
+      subtitle: "Secure line open. Whether it's a project inquiry, technical consultation, or just to say hi—send a transmission."
+    }
+  }
 };

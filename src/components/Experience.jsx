@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Briefcase, Calendar, CheckCircle2 } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function Experience() {
+  const { portfolioData } = useLanguage();
   const { timeline } = portfolioData;
   const [expandedId, setExpandedId] = useState(null);
 
@@ -22,13 +23,13 @@ export default function Experience() {
         <div className="section-header">
           <div className="section-label">
             <Briefcase size={15} />
-            <span>Engineering Track Record</span>
+            <span>{portfolioData.sections.experience.label}</span>
           </div>
           <h2 className="section-title">
-            Career & <span className="section-title-gradient">Milestones</span>
+            {portfolioData.sections.experience.title1} <span className="section-title-gradient">{portfolioData.sections.experience.title2}</span>
           </h2>
           <p className="section-subtitle">
-            A journey bridging software architecture, robotic automation, and hardware-software co-design.
+            {portfolioData.sections.experience.subtitle}
           </p>
         </div>
 

@@ -1,17 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal, CornerDownLeft, Sparkles, X, Minimize2, Maximize2, Send, Command } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 
 export default function TerminalWidget({ onThemeChange }) {
+  const { language, setLanguage, portfolioData } = useLanguage();
   const [history, setHistory] = useState([
     { type: 'system', text: 'SYSTEM: CYBER-OS v3.4.1 [KERNEL: ARM64-RTOS-ROS2]' },
-    { type: 'system', text: "Type 'help' to inspect available commands, or 'skills' / 'projects' / 'robot status'." }
+    { type: 'system', text: language === 'id' ? "Ketik 'help' untuk daftar perintah, atau 'skills' / 'projects'." : "Type 'help' to inspect available commands, or 'skills' / 'projects' / 'robot status'." }
   ]);
   const [inputVal, setInputVal] = useState('');
   const bottomRef = useRef(null);
 
+  const isInitialMount = useRef(true);
+
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history]);
 
@@ -32,17 +39,10 @@ export default function TerminalWidget({ onThemeChange }) {
 
       if (lower === 'help') {
         soundFx.blip();
+        const helpText = portfolioData.terminalHelp.map(item => `  • ${item.command.padEnd(14)} - ${item.desc}`).join('\n');
         newLogs.push({
           type: 'output',
-          text: `AVAILABLE DIRECTIVES:
-  • help           - Show this help manual
-  • whoami         - Display engineer identity & mission
-  • skills         - Summarize web, robotics & systems skillsets
-  • projects       - Query portfolio artifacts catalog
-  • robot status   - Query simulated 6-DOF robotic arm kinematics
-  • theme <name>   - Change theme accent: cyan, amber, violet, emerald
-  • contact        - Reveal direct communication lines
-  • clear          - Flush terminal display buffer`
+          text: (language === 'id' ? `DIREKTIF TERSEDIA:\n` : `AVAILABLE DIRECTIVES:\n`) + helpText
         });
       } else if (lower === 'whoami') {
         soundFx.blip();
@@ -92,13 +92,29 @@ BIO: ${portfolioData.personal.bio}`
           onThemeChange(theme);
           newLogs.push({
             type: 'success',
-            text: `✓ Cyber accent lighting set to: ${theme.toUpperCase()}`
+            text: language === 'id' ? `✓ Aksen warna siber diubah ke: ${theme.toUpperCase()}` : `✓ Cyber accent lighting set to: ${theme.toUpperCase()}`
           });
         } else {
           soundFx.click();
           newLogs.push({
             type: 'error',
-            text: `Unknown theme '${parts[1]}'. Options: cyan, amber, violet, emerald.`
+            text: language === 'id' ? `Tema tidak dikenal '${parts[1]}'. Opsi: cyan, amber, violet, emerald.` : `Unknown theme '${parts[1]}'. Options: cyan, amber, violet, emerald.`
+          });
+        }
+      } else if (lower.startsWith('lang ')) {
+        const targetLang = lower.split(' ')[1];
+        if (targetLang === 'en' || targetLang === 'id') {
+          soundFx.success();
+          setLanguage(targetLang);
+          newLogs.push({
+            type: 'success',
+            text: targetLang === 'id' ? '✓ Bahasa antarmuka berhasil diubah ke Indonesia.' : '✓ Language successfully changed to English.'
+          });
+        } else {
+          soundFx.click();
+          newLogs.push({
+            type: 'error',
+            text: language === 'id' ? `Bahasa '${targetLang}' tidak dikenali. Opsi: en, id.` : `Unknown language '${targetLang}'. Options: en, id.`
           });
         }
       } else if (lower === 'contact') {
@@ -118,7 +134,7 @@ BIO: ${portfolioData.personal.bio}`
         soundFx.click();
         newLogs.push({
           type: 'error',
-          text: `Command not recognized: '${rawCmd}'. Type 'help' for command directory.`
+          text: language === 'id' ? `Perintah tidak dikenali: '${rawCmd}'. Ketik 'help' untuk daftar perintah.` : `Command not recognized: '${rawCmd}'. Type 'help' for command directory.`
         });
       }
 

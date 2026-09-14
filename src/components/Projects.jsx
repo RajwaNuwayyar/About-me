@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import { Layers, Globe, Terminal, ExternalLink, ArrowUpRight, Cpu, Award, Compass } from 'lucide-react';
 import { GithubIcon } from './Icons';
-import { portfolioData } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 import ProjectModal from './ProjectModal';
 import { soundFx } from '../utils/soundFx';
 
 export default function Projects() {
+  const { portfolioData } = useLanguage();
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
 
   const filters = [
-    { id: 'all', label: 'All', icon: Layers },
-    { id: 'robotics', label: 'Robotics & Hardware', icon: Cpu },
-    { id: 'web', label: 'Web & Fullstack', icon: Globe },
-    { id: 'apps', label: 'Apps & Tools', icon: Terminal },
-    { id: 'certificate', label: 'Certificate', icon: Award },
-    { id: 'exploration', label: 'Exploration', icon: Compass }
+    { id: 'all', label: portfolioData.sections.projects.filters.all, icon: Layers },
+    { id: 'robotics', label: portfolioData.sections.projects.filters.robotics, icon: Cpu },
+    { id: 'web', label: portfolioData.sections.projects.filters.web, icon: Globe },
+    { id: 'apps', label: portfolioData.sections.projects.filters.apps, icon: Terminal },
+    { id: 'certificate', label: portfolioData.sections.projects.filters.certificate, icon: Award },
+    { id: 'exploration', label: portfolioData.sections.projects.filters.exploration, icon: Compass }
   ];
 
   const filteredProjects = activeFilter === 'all'
@@ -40,13 +41,13 @@ export default function Projects() {
         <div className="section-header">
           <div className="section-label">
             <Layers size={15} />
-            <span>Engineered Systems</span>
+            <span>{portfolioData.sections.projects.label}</span>
           </div>
           <h2 className="section-title">
-            Featured <span className="section-title-gradient">Projects & Inventions</span>
+            {portfolioData.sections.projects.title1} <span className="section-title-gradient">{portfolioData.sections.projects.title2}</span>
           </h2>
           <p className="section-subtitle">
-            A curated showcase of autonomous hardware, high-throughput cloud dashboards, and cross-platform desktop applications.
+            {portfolioData.sections.projects.subtitle}
           </p>
         </div>
 
