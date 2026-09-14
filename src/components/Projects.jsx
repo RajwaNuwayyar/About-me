@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, Bot, Globe, Terminal, Sparkles, ExternalLink, ArrowUpRight, Cpu } from 'lucide-react';
+import { Layers, Globe, Terminal, ExternalLink, ArrowUpRight, Cpu, Award, Compass } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
@@ -10,11 +10,12 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const filters = [
-    { id: 'all', label: 'All Artifacts', icon: Layers },
+    { id: 'all', label: 'All', icon: Layers },
     { id: 'robotics', label: 'Robotics & Hardware', icon: Cpu },
     { id: 'web', label: 'Web & Fullstack', icon: Globe },
     { id: 'apps', label: 'Apps & Tools', icon: Terminal },
-    { id: 'ai', label: 'AI & Systems', icon: Sparkles }
+    { id: 'certificate', label: 'Certificate', icon: Award },
+    { id: 'exploration', label: 'Exploration', icon: Compass }
   ];
 
   const filteredProjects = activeFilter === 'all'
@@ -26,7 +27,8 @@ export default function Projects() {
       case 'robotics': return 'badge-amber';
       case 'web': return 'badge-cyan';
       case 'apps': return 'badge-violet';
-      case 'ai': return 'badge-emerald';
+      case 'certificate': return 'badge-emerald';
+      case 'exploration': return 'badge-amber';
       default: return 'badge-cyan';
     }
   };

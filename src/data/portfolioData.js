@@ -122,7 +122,7 @@ export const portfolioData = {
     },
     {
       id: "bnsp-tkj",
-      category: "apps",
+      category: "certificate",
       featured: true,
       title: "BNSP Certification",
       subtitle: "Computer & Network Engineering",
@@ -146,7 +146,7 @@ export const portfolioData = {
     },
     {
       id: "pkl-bosse",
-      category: "robotics",
+      category: "exploration",
       featured: true,
       title: "PKL BOSSE COM",
       subtitle: "Computer and Network Engineering Exploration",

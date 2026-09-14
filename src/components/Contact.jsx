@@ -22,10 +22,28 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    soundFx.success();
-    setFormSubmitted(true);
+    try {
+      await fetch("https://formsubmit.co/ajax/rajwa1904@gmail.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          projectType: formData.projectType,
+          message: formData.message,
+          _subject: `New Transmission from ${formData.name}`
+        })
+      });
+      soundFx.success();
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error("Form submission failed:", error);
+    }
   };
 
   return (
@@ -253,6 +271,7 @@ export default function Contact() {
                   <label className="form-label">YOUR CALLSIGN / NAME</label>
                   <input
                     type="text"
+                    name="name"
                     required
                     placeholder="e.g. Dr. Eleanor Arroway"
                     className="form-input"
@@ -265,6 +284,7 @@ export default function Contact() {
                   <label className="form-label">RETURN EMAIL ADDRESS</label>
                   <input
                     type="email"
+                    name="email"
                     required
                     placeholder="name@organization.com"
                     className="form-input"
@@ -276,6 +296,7 @@ export default function Contact() {
                 <div className="form-group">
                   <label className="form-label">PROJECT NATURE</label>
                   <select
+                    name="projectType"
                     className="form-input"
                     style={{ background: '#0a0f1d' }}
                     value={formData.projectType}
@@ -291,6 +312,7 @@ export default function Contact() {
                 <div className="form-group">
                   <label className="form-label">PROJECT DETAILS & OBJECTIVES</label>
                   <textarea
+                    name="message"
                     required
                     placeholder="Describe your project, technical constraints, or timelines..."
                     className="form-textarea"

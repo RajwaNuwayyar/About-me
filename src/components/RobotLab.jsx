@@ -274,11 +274,24 @@ export default function RobotLab() {
     return () => cancelAnimationFrame(animId);
   }, [shoulder, elbow, wrist, gripper, radarEnabled]);
 
-  // Canvas Mouse Interactions
-  const handleMouseDown = (e) => {
+  // Canvas Mouse/Touch Interactions
+  const getEventCoords = (e) => {
     const rect = canvasRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    // Account for CSS scaling vs internal resolution (520x380)
+    const scaleX = canvasRef.current.width / rect.width;
+    const scaleY = canvasRef.current.height / rect.height;
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY
+    };
+  };
+
+  const handleMouseDown = (e) => {
+    // Prevent default scrolling on touch
+    if (e.touches && e.cancelable) e.preventDefault();
+    const { x, y } = getEventCoords(e);
 
     for (let i = blocksRef.current.length - 1; i >= 0; i--) {
       const block = blocksRef.current[i];
@@ -296,9 +309,8 @@ export default function RobotLab() {
 
   const handleMouseMove = (e) => {
     if (!dragStateRef.current.isDragging) return;
-    const rect = canvasRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    if (e.touches && e.cancelable) e.preventDefault();
+    const { x, y } = getEventCoords(e);
     
     const block = blocksRef.current.find(b => b.id === dragStateRef.current.blockId);
     if (block) {
@@ -408,7 +420,11 @@ export default function RobotLab() {
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUp}
               onMouseLeave={handleMouseUp}
-              style={{ cursor: 'crosshair' }}
+              onTouchStart={handleMouseDown}
+              onTouchMove={handleMouseMove}
+              onTouchEnd={handleMouseUp}
+              onTouchCancel={handleMouseUp}
+              style={{ cursor: 'crosshair', touchAction: 'none' }}
             />
 
             {/* Live Telemetry Bar */}
@@ -457,8 +473,8 @@ export default function RobotLab() {
               </div>
               <input
                 type="range"
-                min="-160"
-                max="0"
+                min="-360"
+                max="360"
                 value={shoulder}
                 disabled={isAutonomous}
                 className="cyber-range"
@@ -477,8 +493,8 @@ export default function RobotLab() {
               </div>
               <input
                 type="range"
-                min="0"
-                max="170"
+                min="-360"
+                max="360"
                 value={elbow}
                 disabled={isAutonomous}
                 className="cyber-range"
@@ -497,8 +513,8 @@ export default function RobotLab() {
               </div>
               <input
                 type="range"
-                min="-90"
-                max="90"
+                min="-360"
+                max="360"
                 value={wrist}
                 disabled={isAutonomous}
                 className="cyber-range"
