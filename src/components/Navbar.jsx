@@ -78,18 +78,19 @@ export default function Navbar({ onOpenCommandPalette, soundMuted, onToggleSound
 
       {/* Quick Action Controls */}
       <div className="nav-actions">
-        {/* Language Toggle */}
-        <button
-          className="btn-icon"
+        {/* Language Toggle Switch */}
+        <div 
+          className="lang-toggle-switch"
           onClick={() => {
             soundFx.click();
             setLanguage(language === 'en' ? 'id' : 'en');
           }}
           title={language === 'en' ? "Switch to Indonesian" : "Switch to English"}
-          style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '0.8rem', fontWeight: 'bold' }}
         >
-          {language.toUpperCase()}
-        </button>
+          <span className={`lang-label ${language === 'en' ? 'active' : ''}`}>EN</span>
+          <span className={`lang-label ${language === 'id' ? 'active' : ''}`}>ID</span>
+          <div className={`lang-slider ${language === 'id' ? 'right' : 'left'}`} />
+        </div>
 
         {/* Command Palette Trigger */}
         <button
