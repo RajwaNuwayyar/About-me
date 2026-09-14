@@ -5,11 +5,11 @@ import { portfolioData } from '../data/portfolioData';
 import { soundFx } from '../utils/soundFx';
 
 const ROLES = [
-  "High-Performance Web Apps",
+  "Web Applications",
   "UI/UX Design Systems",
-  "IT & Hardware Troubleshooting",
-  "Computer Network Infrastructure",
-  "Custom Python Integrations"
+  "IT & Hardware Support",
+  "Network Infrastructure",
+  "Python Integrations"
 ];
 
 export default function Hero({ onOpenSimulator }) {
