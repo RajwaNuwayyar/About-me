@@ -12,7 +12,13 @@ export default function TerminalWidget({ onThemeChange }) {
   const [inputVal, setInputVal] = useState('');
   const bottomRef = useRef(null);
 
+  const isInitialMount = useRef(true);
+
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history]);
 

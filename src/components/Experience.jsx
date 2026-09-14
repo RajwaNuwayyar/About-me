@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { Briefcase, Calendar, CheckCircle2, Code2, Palette } from 'lucide-react';
+=======
+import { Briefcase, Calendar, CheckCircle2 } from 'lucide-react';
+>>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
 import { useLanguage } from '../context/LanguageContext';
 import { soundFx } from '../utils/soundFx';
 

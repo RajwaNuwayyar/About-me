@@ -15,7 +15,7 @@ import imgKartasura from '../assets/images/SMPN 3 Kartasura.jpg';
 import imgSawit from '../assets/images/1 sawit.jpg';
 import imgUDB from '../assets/images/UDB.jpg';
 
-export const portfolioData = {
+export const portfolioDataEn = {
   personal: {
     name: "Rajwa Nuwayyar Saif Lawahidz",
     role: "Software Developer & IT Specialist",
@@ -236,6 +236,7 @@ export const portfolioData = {
       label: "Technical Architecture",
       title1: "Skills & ",
       title2: "Competencies",
+<<<<<<< HEAD
       subtitle: "A breakdown of technical proficiencies across software development, hardware engineering, and industrial robotics."
     },
     experience: {
@@ -249,6 +250,21 @@ export const portfolioData = {
       title1: "Let's Build Something ",
       title2: "Extraordinary",
       subtitle: "Whether you need a high-performance web platform, an autonomous robotics solution, or low-level firmware engineering, my inbox is open."
+=======
+      subtitle: "A breakdown of technical proficiencies across software development, IT support, network systems, and UI/UX design."
+    },
+    experience: {
+      label: "Professional Journey",
+      title1: "Experience & ",
+      title2: "Education",
+      subtitle: "Academic timeline and technical exploration milestones."
+    },
+    contact: {
+      label: "Transmission Protocol",
+      title1: "Initiate ",
+      title2: "Contact",
+      subtitle: "Secure line open. Whether it's a project inquiry, technical consultation, or just to say hi—send a transmission."
+>>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
     }
   }
 };

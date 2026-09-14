@@ -94,7 +94,18 @@ export default function Hero({ onOpenSimulator }) {
                 <ArrowRight size={17} />
               </a>
 
+<<<<<<< HEAD
               <button className="btn btn-primary" onClick={onOpenSimulator} onMouseEnter={() => soundFx.hover()}>
+=======
+              <button
+                className="btn btn-primary"
+                onClick={() => {
+                  soundFx.servo();
+                  onOpenSimulator();
+                }}
+                onMouseEnter={() => soundFx.hover()}
+              >
+>>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
                 <Sparkles size={18} />
                 <span>{portfolioData.sections.hero.start}</span>
               </button>
@@ -111,9 +122,15 @@ export default function Hero({ onOpenSimulator }) {
 
             {/* Social Icons */}
             <div className="hero-socials" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '2rem' }}>
+<<<<<<< HEAD
             <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', marginRight: '0.5rem', fontFamily: 'Space Grotesk, sans-serif' }}>
               {portfolioData.sections.hero.connect}:
             </span>
+=======
+              <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', marginRight: '0.5rem', fontFamily: 'Space Grotesk, sans-serif' }}>
+                {portfolioData.sections.hero.connect}:
+              </span>
+>>>>>>> 77123f097644f3bc6e3fa08a36c0fe5679582c73
               {personal.socials.whatsapp && (
                 <a
                   href={personal.socials.whatsapp}
@@ -208,108 +225,7 @@ export default function Hero({ onOpenSimulator }) {
 
           </div>
 
-          {/* Right Column: Interactive Cyber Telemetry Card */}
-          <div className="hero-card-container">
-            <div className="cyber-card-frame">
-              {/* Corner brackets */}
-              <div className="cyber-card-corner corner-tl" />
-              <div className="cyber-card-corner corner-tr" />
-              <div className="cyber-card-corner corner-bl" />
-              <div className="cyber-card-corner corner-br" />
 
-              {/* Header */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Activity size={17} style={{ color: 'var(--accent-primary)' }} />
-                  <span className="font-mono" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-                    CORE_TELEMETRY.SYS
-                  </span>
-                </div>
-                <div className="badge badge-emerald">
-                  <span className="badge-pulse-dot" />
-                  <span>ONLINE</span>
-                </div>
-              </div>
-
-              {/* Status Display Matrix */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.85rem', marginBottom: '1.25rem' }}>
-                <div style={{ background: 'rgba(0,0,0,0.35)', padding: '0.85rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono, monospace' }}>NODE LATENCY</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--accent-primary)', fontFamily: 'Space Grotesk, sans-serif' }}>
-                    {ping} ms
-                  </div>
-                </div>
-
-                <div style={{ background: 'rgba(0,0,0,0.35)', padding: '0.85rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono, monospace' }}>ACTIVE PROTOCOL</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#38bdf8', fontFamily: 'Space Grotesk, sans-serif' }}>
-                    ROS 2 + WSS
-                  </div>
-                </div>
-
-                <div style={{ background: 'rgba(0,0,0,0.35)', padding: '0.85rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono, monospace' }}>KINEMATICS ENGINE</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent-amber)', fontFamily: 'Space Grotesk, sans-serif' }}>
-                    6-DOF Solved
-                  </div>
-                </div>
-
-                <div style={{ background: 'rgba(0,0,0,0.35)', padding: '0.85rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono, monospace' }}>UI RENDER FPS</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#34d399', fontFamily: 'Space Grotesk, sans-serif' }}>
-                    60.0 FPS
-                  </div>
-                </div>
-              </div>
-
-              {/* Live Terminal Snippet */}
-              <div style={{
-                background: 'rgba(4, 7, 13, 0.85)',
-                border: '1px solid rgba(255,255,255,0.06)',
-                borderRadius: '8px',
-                padding: '0.85rem 1rem',
-                fontFamily: 'JetBrains Mono, monospace',
-                fontSize: '0.78rem',
-                color: 'var(--text-secondary)',
-                lineHeight: '1.6'
-              }}>
-                <div style={{ color: 'var(--accent-primary)' }}>$ ros2 topic echo /robot/joint_states</div>
-                <div>[INFO] Base: 45.2° | Shoulder: -32.8° | Elbow: 78.4°</div>
-                <div style={{ color: '#34d399' }}>✓ End-effector coordinate: [X: 242mm, Y: 110mm, Z: 85mm]</div>
-                <div style={{ color: 'var(--text-muted)' }}>✓ Kinematic loop frequency: 200 Hz</div>
-              </div>
-
-              {/* Quick Interactive Button */}
-              <button
-                style={{
-                  width: '100%',
-                  marginTop: '1.25rem',
-                  padding: '0.75rem',
-                  borderRadius: '8px',
-                  background: 'rgba(var(--accent-rgb), 0.12)',
-                  border: '1px solid var(--accent-primary)',
-                  color: 'var(--accent-primary)',
-                  fontFamily: 'Space Grotesk, sans-serif',
-                  fontWeight: 600,
-                  fontSize: '0.9rem',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem',
-                  transition: 'all 0.2s ease'
-                }}
-                onClick={() => {
-                  soundFx.servo();
-                  onOpenSimulator();
-                }}
-                onMouseEnter={() => soundFx.hover()}
-              >
-                <Cpu size={16} />
-                <span>Test Interactive Robotic Arm in Lab</span>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
