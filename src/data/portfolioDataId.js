@@ -100,6 +100,28 @@ export const portfolioDataId = {
 
   projects: [
     {
+      id: "tech-arsenal",
+      category: "apps",
+      featured: true,
+      pinned: true,
+      title: "Gudang Teknologi Saya",
+      subtitle: "Bahasa, Framework & Alat yang Saya Gunakan",
+      description: "Koleksi lengkap bahasa pemrograman, framework, database, dan alat pengembangan yang saya gunakan di berbagai proyek web, mobile, backend, dan TI.",
+      extendedDescription: "Sepanjang perjalanan saya sebagai pengembang perangkat lunak dan spesialis TI, saya telah membangun proyek nyata menggunakan tech stack yang beragam. Dari framework frontend seperti React dan Flutter, hingga teknologi backend seperti Node.js, Golang, FastAPI, dan Laravel — saya terus memperluas perangkat saya untuk menghadirkan solusi yang kokoh, skalabel, dan modern.",
+      tags: ["Node.js", "Golang", "Python", "React", "Flutter", "Dart", "FastAPI", "Laravel", "PHP", "Java", "C#", "HTML5", "CSS3", "JavaScript", "MySQL", "SQL", "phpMyAdmin", "Figma", "ProtoPie", "GitHub", "Git", "VS Code", "Vite"],
+      metrics: {
+        bahasa: "8+",
+        framework: "6+",
+        alat: "10+",
+        proyek: "15+"
+      },
+      status: "Terus Berkembang",
+      links: {
+        github: "https://github.com/RajwaNuwayyar"
+      },
+      gradient: "from-violet to-cyan"
+    },
+    {
       id: "man2surakarta",
       category: "web",
       featured: true,

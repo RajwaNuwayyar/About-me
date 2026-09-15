@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, Globe, Terminal, ExternalLink, ArrowUpRight, Cpu, Award, Compass } from 'lucide-react';
+import { Layers, Globe, Terminal, ExternalLink, ArrowUpRight, Cpu, Award, Compass, Pin } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { useLanguage } from '../context/LanguageContext';
 import ProjectModal from './ProjectModal';
@@ -79,7 +79,7 @@ export default function Projects() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="project-card"
+              className={`project-card ${project.pinned ? 'project-card-pinned' : ''}`}
               onMouseEnter={() => soundFx.hover()}
             >
               <div className="project-card-header">
@@ -88,7 +88,13 @@ export default function Projects() {
                     <span className="badge-pulse-dot" />
                     <span>{project.category}</span>
                   </span>
-                  {project.featured && (
+                  {project.pinned && (
+                    <span className="badge badge-violet" style={{ fontSize: '0.68rem', padding: '0.2rem 0.6rem', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                      <Pin size={11} />
+                      PINNED
+                    </span>
+                  )}
+                  {project.featured && !project.pinned && (
                     <span className="badge badge-cyan" style={{ fontSize: '0.68rem', padding: '0.2rem 0.6rem' }}>
                       FEATURED
                     </span>
@@ -138,13 +144,13 @@ export default function Projects() {
 
                 {/* Primary Metrics */}
                 {project.metrics && (
-                  <div className="project-metrics-chip-row">
-                    {Object.entries(project.metrics).slice(0, 2).map(([key, val]) => (
+                  <div className={`project-metrics-chip-row ${project.pinned ? 'pinned-metrics' : ''}`}>
+                    {Object.entries(project.metrics).slice(0, project.pinned ? 4 : 2).map(([key, val]) => (
                       <div key={key}>
                         <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono, monospace', textTransform: 'uppercase' }}>
                           {key.replace(/([A-Z])/g, ' $1')}
                         </div>
-                        <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'Space Grotesk, sans-serif' }}>
+                        <div style={{ fontSize: '0.88rem', fontWeight: 700, color: project.pinned ? 'var(--accent-primary)' : 'var(--text-primary)', fontFamily: 'Space Grotesk, sans-serif' }}>
                           {val}
                         </div>
                       </div>
@@ -153,13 +159,13 @@ export default function Projects() {
                 )}
 
                 {/* Tech Pills */}
-                <div className="project-tags-row">
-                  {project.tags.slice(0, 4).map((tag, idx) => (
-                    <span key={idx} className="project-tech-pill">
+                <div className={`project-tags-row ${project.pinned ? 'pinned-tags' : ''}`}>
+                  {(project.pinned ? project.tags : project.tags.slice(0, 4)).map((tag, idx) => (
+                    <span key={idx} className={`project-tech-pill ${project.pinned ? 'pinned-pill' : ''}`}>
                       {tag}
                     </span>
                   ))}
-                  {project.tags.length > 4 && (
+                  {!project.pinned && project.tags.length > 4 && (
                     <span className="project-tech-pill" style={{ color: 'var(--accent-primary)' }}>
                       +{project.tags.length - 4}
                     </span>

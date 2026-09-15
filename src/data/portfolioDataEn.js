@@ -100,6 +100,28 @@ export const portfolioDataEn = {
 
   projects: [
     {
+      id: "tech-arsenal",
+      category: "apps",
+      featured: true,
+      pinned: true,
+      title: "My Tech Arsenal",
+      subtitle: "Languages, Frameworks & Tools I Work With",
+      description: "A comprehensive collection of programming languages, frameworks, databases, and development tools that I use across web, mobile, backend, and IT projects.",
+      extendedDescription: "Throughout my journey as a software developer and IT specialist, I have built real-world projects using a diverse tech stack. From frontend frameworks like React and Flutter, to backend technologies like Node.js, Golang, FastAPI, and Laravel — I continuously expand my toolkit to deliver robust, scalable, and modern solutions.",
+      tags: ["Node.js", "Golang", "Python", "React", "Flutter", "Dart", "FastAPI", "Laravel", "PHP", "Java", "C#", "HTML5", "CSS3", "JavaScript", "MySQL", "SQL", "phpMyAdmin", "Figma", "ProtoPie", "GitHub", "Git", "VS Code", "Vite"],
+      metrics: {
+        languages: "8+",
+        frameworks: "6+",
+        tools: "10+",
+        projects: "15+"
+      },
+      status: "Actively Growing",
+      links: {
+        github: "https://github.com/RajwaNuwayyar"
+      },
+      gradient: "from-violet to-cyan"
+    },
+    {
       id: "man2surakarta",
       category: "web",
       featured: true,
