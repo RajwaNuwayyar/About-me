@@ -1605,3 +1605,19 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2.1rem;
   }
 }
+
+@media (max-width: 480px) {
+  .nav-brand span {
+    display: none;
+  }
+  .cyber-navbar {
+    padding: 0.5rem 0.75rem;
+  }
+  .nav-actions {
+    gap: 0.25rem;
+  }
+  .lang-toggle-switch {
+    width: 54px;
+    margin-right: 0;
+  }
+}

@@ -156,7 +156,9 @@ BIO: ${portfolioData.personal.bio}`
             Interactive <span className="section-title-gradient">CLI Terminal</span>
           </h2>
           <p className="section-subtitle">
-            Prefer the command line? Run shell commands to inspect background telemetry, trigger hardware routines, or configure UI themes.
+            {language === 'id' 
+              ? "Lebih menyukai baris perintah? Jalankan perintah shell untuk memeriksa telemetri latar belakang, memicu rutinitas perangkat keras, atau mengonfigurasi tema UI."
+              : "Prefer the command line? Run shell commands to inspect background telemetry, trigger hardware routines, or configure UI themes."}
           </p>
         </div>
 

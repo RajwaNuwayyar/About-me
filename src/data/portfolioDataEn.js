@@ -110,16 +110,14 @@ export const portfolioDataEn = {
       extendedDescription: "Developed a secure and responsive web application designed for MAN 2 Surakarta to digitize their incoming and outgoing mail. The system features multi-level access control, digital signatures, real-time tracking, and automated archiving, completely replacing manual paper-based processes.",
       tags: ["SchoolCMS", "Landing Page", "Web App", "UI/UX"],
       metrics: {
-        latency: "Optimized Load",
-        degreesOfFreedom: "Web Based",
-        payload: "School DB",
-        accuracy: "High Security"
+        platform: "Web Based",
+        type: "School CMS",
+        database: "MySQL",
+        security: "Multi-Level Access"
       },
       status: "Real Project",
       links: {
-        demo: "https://github.com/RajwaNuwayyar/Sistem_Manajemen_persuratan_MAN_2_Surakarta",
-        github: "https://github.com/RajwaNuwayyar/Sistem_Manajemen_persuratan_MAN_2_Surakarta",
-        docs: "#"
+        github: "https://github.com/RajwaNuwayyar/Sistem_Manajemen_persuratan_MAN_2_Surakarta"
       },
       gradient: "from-cyan to-blue"
     },
@@ -134,16 +132,15 @@ export const portfolioDataEn = {
       extendedDescription: "Successfully demonstrated high-level competency in assembling, troubleshooting, and repairing computer hardware. Configured robust local area networks (LAN), routing, and switching. Certified by the Indonesian Professional Certification Authority (BNSP/LSP).",
       tags: ["National Certification", "BNSP / LSP", "Networking", "Hardware"],
       metrics: {
-        throughput: "Certified",
-        rendering: "National Level",
-        latency: "Active",
-        uptime: "100%"
+        status: "Certified",
+        level: "National (BNSP)",
+        validity: "Active",
+        score: "Competent"
       },
       status: "Certified",
       links: {
         cert1: imgCert1,
-        cert2: imgCert2,
-        docs: "#"
+        cert2: imgCert2
       },
       gradient: "from-emerald to-cyan"
     },
@@ -158,17 +155,13 @@ export const portfolioDataEn = {
       extendedDescription: "Conducted deep technical exploration and real-world implementation during industrial training at BOSSE COM. Tasks involved diagnosing and repairing complex laptop motherboard issues, optimizing operating systems, and deploying small to medium business network infrastructures.",
       tags: ["Hardware Repair", "Networking", "Troubleshooting"],
       metrics: {
-        maxSpeed: "High Efficiency",
-        range: "Full Service",
-        scanRate: "Diagnostics",
-        batteryLife: "Repairs"
+        duration: "6 Months",
+        scope: "Full Service",
+        focus: "Hardware & Network",
+        result: "Completed"
       },
       status: "Completed",
-      links: {
-        demo: "#",
-        github: "https://github.com/RajwaNuwayyar",
-        docs: "#"
-      },
+      links: {},
       gradient: "from-amber to-orange"
     }
   ],

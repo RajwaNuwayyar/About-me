@@ -110,16 +110,14 @@ export const portfolioDataId = {
       extendedDescription: "Mengembangkan aplikasi web aman dan responsif yang dirancang untuk MAN 2 Surakarta agar dapat mendigitalkan surat masuk dan keluar mereka. Sistem ini dilengkapi kontrol akses multi-level, tanda tangan digital, pelacakan waktu nyata, dan pengarsipan otomatis, sepenuhnya menggantikan proses manual berbasis kertas.",
       tags: ["CMS Sekolah", "Landing Page", "Web App", "UI/UX"],
       metrics: {
-        latensi: "Pemuatan Optimal",
-        derajatKebebasan: "Berbasis Web",
-        payload: "Database Sekolah",
-        akurasi: "Keamanan Tinggi"
+        platform: "Berbasis Web",
+        tipe: "CMS Sekolah",
+        database: "MySQL",
+        keamanan: "Akses Multi-Level"
       },
       status: "Proyek Nyata",
       links: {
-        demo: "https://github.com/RajwaNuwayyar/Sistem_Manajemen_persuratan_MAN_2_Surakarta",
-        github: "https://github.com/RajwaNuwayyar/Sistem_Manajemen_persuratan_MAN_2_Surakarta",
-        docs: "#"
+        github: "https://github.com/RajwaNuwayyar/Sistem_Manajemen_persuratan_MAN_2_Surakarta"
       },
       gradient: "from-cyan to-blue"
     },
@@ -134,16 +132,15 @@ export const portfolioDataId = {
       extendedDescription: "Berhasil mendemonstrasikan kompetensi tingkat tinggi dalam perakitan, pemecahan masalah, dan perbaikan perangkat keras komputer. Mengonfigurasi jaringan area lokal (LAN) yang kuat, routing, dan switching. Disertifikasi oleh Badan Nasional Sertifikasi Profesi (BNSP/LSP).",
       tags: ["Sertifikasi Nasional", "BNSP / LSP", "Jaringan", "Hardware"],
       metrics: {
-        throughput: "Tersertifikasi",
-        rendering: "Tingkat Nasional",
-        latensi: "Aktif",
-        uptime: "100%"
+        status: "Tersertifikasi",
+        tingkat: "Nasional (BNSP)",
+        validitas: "Aktif",
+        nilai: "Kompeten"
       },
       status: "Tersertifikasi",
       links: {
         cert1: imgCert1,
-        cert2: imgCert2,
-        docs: "#"
+        cert2: imgCert2
       },
       gradient: "from-emerald to-cyan"
     },
@@ -158,17 +155,13 @@ export const portfolioDataId = {
       extendedDescription: "Melakukan eksplorasi teknis mendalam dan implementasi dunia nyata selama pelatihan industri di BOSSE COM. Tugas meliputi diagnosis dan perbaikan masalah motherboard laptop yang kompleks, optimalisasi sistem operasi, serta penerapan infrastruktur jaringan bisnis kecil hingga menengah.",
       tags: ["Perbaikan Hardware", "Jaringan", "Troubleshooting"],
       metrics: {
-        kecepatanMaks: "Efisiensi Tinggi",
-        jangkauan: "Layanan Penuh",
-        tingkatPemindaian: "Diagnostik",
-        umurBaterai: "Perbaikan"
+        durasi: "6 Bulan",
+        cakupan: "Layanan Penuh",
+        fokus: "Hardware & Jaringan",
+        hasil: "Selesai"
       },
       status: "Selesai",
-      links: {
-        demo: "#",
-        github: "https://github.com/RajwaNuwayyar",
-        docs: "#"
-      },
+      links: {},
       gradient: "from-amber to-orange"
     }
   ],
