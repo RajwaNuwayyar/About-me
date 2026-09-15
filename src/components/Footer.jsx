@@ -38,7 +38,7 @@ export default function Footer() {
               </span>
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', maxWidth: '380px' }}>
-              Crafting digital solutions across software engineering, UI/UX design & robotics innovation.
+              {portfolioData.personal.tagline}
             </p>
             {/* Social Icons */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.85rem', flexWrap: 'wrap' }}>
@@ -190,16 +190,16 @@ export default function Footer() {
           </div>
           <div style={{ display: 'flex', gap: '1.25rem' }}>
             <a href="#robotics" className="nav-link" style={{ padding: 0 }} onClick={() => soundFx.click()}>
-              Robotics Lab
+              {portfolioData.sections.skills.label}
             </a>
             <a href="#projects" className="nav-link" style={{ padding: 0 }} onClick={() => soundFx.click()}>
-              Projects
+              {portfolioData.sections.projects.label}
             </a>
             <a href="#terminal" className="nav-link" style={{ padding: 0 }} onClick={() => soundFx.click()}>
               Terminal
             </a>
             <a href="#contact" className="nav-link" style={{ padding: 0 }} onClick={() => soundFx.click()}>
-              Transmission
+              {portfolioData.sections.contact.label}
             </a>
           </div>
         </div>

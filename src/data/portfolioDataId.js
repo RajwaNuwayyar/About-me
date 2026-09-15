@@ -33,8 +33,6 @@ export const portfolioDataId = {
     socials: {
       github: "https://github.com/RajwaNuwayyar",
       linkedin: "https://www.linkedin.com/in/rajwa-nuwayyar-saif-lawahidz-3840b442b/",
-      twitter: "https://twitter.com",
-      discord: "https://discord.com",
       email: "rajwa1904@gmail.com",
       instagram: "https://www.instagram.com/rajwa_nxl/",
       whatsapp: "https://api.whatsapp.com/send/?phone=6285729959997&text&type=phone_number&app_absent=0",
@@ -224,10 +222,13 @@ export const portfolioDataId = {
     { command: "whoami", desc: "Tampilkan bio dan spesialisasi inti" },
     { command: "skills", desc: "Daftar kemampuan teknis meliputi Web, TI & Aplikasi" },
     { command: "projects", desc: "Tampilkan katalog proyek unggulan" },
-    { command: "robot status", desc: "Kueri telemetri langsung dari simulasi lengan 6-DOF" },
+    { command: "system status", desc: "Kueri telemetri sistem dan OS secara langsung" },
     { command: "contact", desc: "Tampilkan jalur kontak dan komunikasi langsung" },
     { command: "theme <cyan|amber|violet|emerald>", desc: "Ubah aksen tema siber secara dinamis" },
     { command: "lang <en|id>", desc: "Ganti bahasa antarmuka (Inggris / Indonesia)" },
+    { command: "ping", desc: "Kirim ping untuk memeriksa latensi server" },
+    { command: "date", desc: "Tampilkan tanggal dan waktu sistem saat ini" },
+    { command: "echo <teks>", desc: "Cetak teks kembali ke terminal" },
     { command: "clear", desc: "Bersihkan layar output terminal" }
   ],
 

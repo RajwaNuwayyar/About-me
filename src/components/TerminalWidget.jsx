@@ -6,8 +6,8 @@ import { soundFx } from '../utils/soundFx';
 export default function TerminalWidget({ onThemeChange }) {
   const { language, setLanguage, portfolioData } = useLanguage();
   const [history, setHistory] = useState([
-    { type: 'system', text: 'SYSTEM: CYBER-OS v3.4.1 [KERNEL: ARM64-RTOS-ROS2]' },
-    { type: 'system', text: language === 'id' ? "Ketik 'help' untuk daftar perintah, atau 'skills' / 'projects'." : "Type 'help' to inspect available commands, or 'skills' / 'projects' / 'robot status'." }
+    { type: 'system', text: 'SYSTEM: CYBER-OS v3.4.1' },
+    { type: 'system', text: language === 'id' ? "Ketik 'help' untuk daftar perintah, atau 'skills' / 'projects' / 'system status'." : "Type 'help' to inspect available commands, or 'skills' / 'projects' / 'system status'." }
   ]);
   const [inputVal, setInputVal] = useState('');
   const bottomRef = useRef(null);
@@ -58,31 +58,31 @@ BIO: ${portfolioData.personal.bio}`
         newLogs.push({
           type: 'output',
           text: `TECHNICAL ARSENAL:
-  [ROBOTICS & HARDWARE] : ROS 2, C++20, ESP32, Kinematics, LiDAR SLAM, KiCad, OpenCV
-  [WEB & FULLSTACK]     : React.js, TypeScript, Canvas API, WebSockets, Node.js, Express, Postgres
-  [SYSTEMS & TOOLS]     : Python, Electron, Linux/Embedded, Docker, WebUSB, Git`
+  [PROGRAMMING]   : Node.js, Golang, Python, Java, C#, PHP, Dart
+  [WEB & MOBILE]  : React, HTML5, CSS3, JavaScript, Flutter, FastAPI, Laravel
+  [DATABASES]     : MySQL, SQL, phpMyAdmin
+  [TOOLS & DESIGN]: Figma, ProtoPie, GitHub, Git, VS Code, Vite`
         });
       } else if (lower === 'projects') {
         soundFx.blip();
         newLogs.push({
           type: 'output',
-          text: `FEATURED ARTIFACTS:
-  1. Aegis-6        [ROBOTICS]  - 6-DOF Robotic Arm with Web Kinematics
-  2. NovaPulse      [WEB/CLOUD] - Edge IoT Telemetry Platform (50k msgs/s)
-  3. Vektor Rover   [ROBOTICS]  - Autonomous LiDAR SLAM Vehicle
-  4. Synthetix      [DESKTOP]   - Microcontroller & CAN Bus Analyzer Studio
-  5. NeuroVision    [AI/VISION] - Spatial Hand-Tracking Teleoperation`
+          text: `FEATURED PROJECTS & ACHIEVEMENTS:
+  1. MAN 2 Surakarta   [WEB]    - School Correspondence Management System
+  2. My Tech Arsenal   [APPS]   - Comprehensive collection of dev tools
+  3. BNSP Cert.        [CERT]   - Computer & Network Engineering
+  4. PKL BOSSE COM     [EXPL]   - Hardware & Network Exploration`
         });
-      } else if (lower === 'robot status') {
+      } else if (lower === 'system status') {
         soundFx.radar();
         newLogs.push({
           type: 'output',
-          text: `ROBOT TELEMETRY REPORT:
-  • Node Name     : /manipulator/aegis_6
-  • Kinematics    : 6-Axis Inverse Kinematics SOLVED
-  • Repeatability : ±0.15 mm
-  • Teleop Feed   : WebSocket 120Hz connected
-  • End-Effector  : Gripper Ready`
+          text: `SYSTEM STATUS REPORT:
+  • OS Kernel     : WebPortfolio v3.4.1
+  • Environment   : React + Vite + Node.js
+  • Uptime        : 99.9% (Stable)
+  • Network       : Connected (Latency: ~18ms)
+  • Security      : Nominal`
         });
       } else if (lower.startsWith('theme')) {
         const parts = lower.split(' ');
@@ -130,6 +130,24 @@ BIO: ${portfolioData.personal.bio}`
   • LinkedIn : ${portfolioData.personal.socials.linkedin}
   • Email    : ${portfolioData.personal.socials.email}`
         });
+      } else if (lower === 'ping') {
+        soundFx.radar();
+        newLogs.push({
+          type: 'output',
+          text: `PONG! Server is reachable. Latency: ${Math.floor(10 + Math.random() * 20)}ms`
+        });
+      } else if (lower === 'date') {
+        soundFx.blip();
+        newLogs.push({
+          type: 'output',
+          text: `CURRENT SYSTEM TIME: ${new Date().toString()}`
+        });
+      } else if (lower.startsWith('echo ')) {
+        soundFx.blip();
+        newLogs.push({
+          type: 'output',
+          text: rawCmd.substring(5)
+        });
       } else {
         soundFx.click();
         newLogs.push({
@@ -150,10 +168,11 @@ BIO: ${portfolioData.personal.bio}`
         <div className="section-header">
           <div className="section-label">
             <Terminal size={15} />
-            <span>Developer Shell</span>
+            <span>{language === 'id' ? 'Shell Pengembang' : 'Developer Shell'}</span>
           </div>
           <h2 className="section-title">
-            Interactive <span className="section-title-gradient">CLI Terminal</span>
+            {language === 'id' ? 'Terminal CLI ' : 'Interactive '}
+            <span className="section-title-gradient">{language === 'id' ? 'Interaktif' : 'CLI Terminal'}</span>
           </h2>
           <p className="section-subtitle">
             {language === 'id' 

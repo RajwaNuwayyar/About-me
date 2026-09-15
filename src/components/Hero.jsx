@@ -90,7 +90,7 @@ export default function Hero({ onOpenSimulator }) {
                 className="btn btn-primary"
                 onClick={() => soundFx.click()}
               >
-                <span>Explore Projects</span>
+                <span>{language === 'id' ? 'Jelajahi Proyek' : 'Explore Projects'}</span>
                 <ArrowRight size={17} />
               </a>
 
@@ -112,7 +112,7 @@ export default function Hero({ onOpenSimulator }) {
                 onClick={() => soundFx.click()}
               >
                 <Terminal size={17} />
-                <span>Interactive CLI</span>
+                <span>{language === 'id' ? 'Terminal Interaktif' : 'Interactive CLI'}</span>
               </a>
             </div>
 

@@ -33,8 +33,6 @@ export const portfolioDataEn = {
     socials: {
       github: "https://github.com/RajwaNuwayyar",
       linkedin: "https://www.linkedin.com/in/rajwa-nuwayyar-saif-lawahidz-3840b442b/",
-      twitter: "https://twitter.com",
-      discord: "https://discord.com",
       email: "rajwa1904@gmail.com",
       instagram: "https://www.instagram.com/rajwa_nxl/",
       whatsapp: "https://api.whatsapp.com/send/?phone=6285729959997&text&type=phone_number&app_absent=0",
@@ -224,9 +222,12 @@ export const portfolioDataEn = {
     { command: "whoami", desc: "Display bio and core specialization" },
     { command: "skills", desc: "List technical arsenal across Web, IT & Apps" },
     { command: "projects", desc: "Display featured technical projects" },
-    { command: "robot status", desc: "Query live telemetry of the simulated 6-DOF arm" },
+    { command: "system status", desc: "Query live system and OS telemetry" },
     { command: "contact", desc: "Reveal contact channels and direct communication links" },
     { command: "theme <cyan|amber|violet|emerald>", desc: "Dynamically switch accent cyber theme" },
+    { command: "ping", desc: "Send a ping to check server latency" },
+    { command: "date", desc: "Display current system date and time" },
+    { command: "echo <text>", desc: "Print text back to the terminal" },
     { command: "clear", desc: "Wipe terminal output screen" }
   ],
 
