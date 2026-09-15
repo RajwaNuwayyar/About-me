@@ -26,25 +26,38 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: "6877c33746662b82c865e960bc8a5a84",
+          access_key: "70e6df30-617e-4f25-8018-6ad0cf84c704",
           name: formData.name,
           email: formData.email,
+          from_name: formData.name,
+          replyto: formData.email,
+          subject: `Portfolio Transmission from ${formData.name} — ${formData.projectType}`,
           projectType: formData.projectType,
-          message: formData.message,
-          subject: `New Transmission from ${formData.name}`
+          message: formData.message
         })
       });
-      soundFx.success();
-      setFormSubmitted(true);
+      const result = await response.json();
+      if (result.success) {
+        soundFx.success();
+        setFormSubmitted(true);
+      } else {
+        console.error("Web3Forms error:", result.message);
+        alert(language === 'id' 
+          ? 'Gagal mengirim pesan. Silakan coba lagi atau hubungi langsung via email.' 
+          : 'Failed to send message. Please try again or contact directly via email.');
+      }
     } catch (error) {
       console.error("Form submission failed:", error);
+      alert(language === 'id' 
+        ? 'Terjadi kesalahan jaringan. Silakan coba lagi.' 
+        : 'Network error occurred. Please try again.');
     }
   };
 
