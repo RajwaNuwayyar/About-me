@@ -621,12 +621,49 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
-.hero-title {
-  font-size: clamp(1.8rem, 5vw, 4.2rem);
-  font-weight: 900;
+.mobile-break {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-break {
+    display: block;
+  }
+}
+
+.hero-name-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
   line-height: 1.1;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.hero-name-highlight {
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  font-weight: 900;
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent-primary), #fff, var(--accent-secondary));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: shine 5s linear infinite;
+  margin-top: 0.2rem;
   letter-spacing: -0.03em;
-  margin: 1.25rem 0 1.25rem;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.hero-subtitle {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
 }
 
 .hero-typewriter-wrapper {

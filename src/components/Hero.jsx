@@ -71,13 +71,18 @@ export default function Hero({ onOpenSimulator }) {
               <span>{portfolioData.sections.hero.greeting}</span>
             </div>
 
-            <h1 className="hero-title">
-              Engineering <br />
+            <h1 className="hero-name-title">
+              {language === 'id' ? 'Hai, saya' : "Hi, I'm"} <br className="mobile-break" />
+              <span className="hero-name-highlight">{personal.name}</span>
+            </h1>
+
+            <h2 className="hero-subtitle">
+              Engineering{' '}
               <span className="hero-typewriter-wrapper">
                 {text}
                 <span className="hero-typewriter-cursor" />
               </span>
-            </h1>
+            </h2>
 
             <p className="hero-bio">
               {personal.bio}
