@@ -6,9 +6,9 @@ import { soundFx } from '../utils/soundFx';
 export default function RobotLab() {
   const { portfolioData } = useLanguage();
   // Joint angles in degrees
-  const [shoulder, setShoulder] = useState(-50);
+  const [shoulder, setShoulder] = useState(310);
   const [elbow, setElbow] = useState(105);
-  const [wrist, setWrist] = useState(-45);
+  const [wrist, setWrist] = useState(315);
   const [gripper, setGripper] = useState(25); // 0 (closed) to 50 (wide)
   const [radarEnabled, setRadarEnabled] = useState(true);
   const [isAutonomous, setIsAutonomous] = useState(false);
@@ -336,13 +336,13 @@ export default function RobotLab() {
     soundFx.radar();
 
     const keyframes = [
-      { s: -20, e: 60, w: -40, g: 45, delay: 0 },
-      { s: -10, e: 45, w: -30, g: 45, delay: 500 },
-      { s: -10, e: 45, w: -30, g: 8, delay: 1100 },  // Clamp
-      { s: -65, e: 80, w: -15, g: 8, delay: 1700 },  // Lift
-      { s: -110, e: 90, w: 20, g: 8, delay: 2400 },  // Move left
-      { s: -140, e: 55, w: 10, g: 45, delay: 3100 }, // Release
-      { s: -50, e: 105, w: -45, g: 25, delay: 3800 } // Reset
+      { s: 340, e: 60, w: 320, g: 45, delay: 0 },
+      { s: 350, e: 45, w: 330, g: 45, delay: 500 },
+      { s: 350, e: 45, w: 330, g: 8, delay: 1100 },  // Clamp
+      { s: 295, e: 80, w: 345, g: 8, delay: 1700 },  // Lift
+      { s: 250, e: 90, w: 20, g: 8, delay: 2400 },  // Move left
+      { s: 220, e: 55, w: 10, g: 45, delay: 3100 }, // Release
+      { s: 310, e: 105, w: 315, g: 25, delay: 3800 } // Reset
     ];
 
     keyframes.forEach((kf) => {
@@ -475,7 +475,7 @@ export default function RobotLab() {
               </div>
               <input
                 type="range"
-                min="-360"
+                min="0"
                 max="360"
                 value={shoulder}
                 disabled={isAutonomous}
@@ -495,7 +495,7 @@ export default function RobotLab() {
               </div>
               <input
                 type="range"
-                min="-360"
+                min="0"
                 max="360"
                 value={elbow}
                 disabled={isAutonomous}
@@ -515,7 +515,7 @@ export default function RobotLab() {
               </div>
               <input
                 type="range"
-                min="-360"
+                min="0"
                 max="360"
                 value={wrist}
                 disabled={isAutonomous}
@@ -557,7 +557,7 @@ export default function RobotLab() {
                 <button
                   className={`btn-secondary ${activePreset === 'parked' ? 'active' : ''}`}
                   style={{ padding: '0.35rem 0.75rem', fontSize: '0.78rem' }}
-                  onClick={() => applyPreset('parked', -50, 105, -45, 25)}
+                  onClick={() => applyPreset('parked', 310, 105, 315, 25)}
                   disabled={isAutonomous}
                 >
                   Parked Pose
@@ -565,7 +565,7 @@ export default function RobotLab() {
                 <button
                   className={`btn-secondary ${activePreset === 'extended' ? 'active' : ''}`}
                   style={{ padding: '0.35rem 0.75rem', fontSize: '0.78rem' }}
-                  onClick={() => applyPreset('extended', -15, 30, -15, 45)}
+                  onClick={() => applyPreset('extended', 345, 30, 345, 45)}
                   disabled={isAutonomous}
                 >
                   Full Reach
@@ -573,7 +573,7 @@ export default function RobotLab() {
                 <button
                   className={`btn-secondary ${activePreset === 'low' ? 'active' : ''}`}
                   style={{ padding: '0.35rem 0.75rem', fontSize: '0.78rem' }}
-                  onClick={() => applyPreset('low', -10, 80, -70, 10)}
+                  onClick={() => applyPreset('low', 350, 80, 290, 10)}
                   disabled={isAutonomous}
                 >
                   Ground Pickup
@@ -595,7 +595,7 @@ export default function RobotLab() {
 
               <button
                 className="btn btn-secondary"
-                onClick={() => applyPreset('parked', -50, 105, -45, 25)}
+                onClick={() => applyPreset('parked', 310, 105, 315, 25)}
                 disabled={isAutonomous}
                 title="Reset to origin"
               >
