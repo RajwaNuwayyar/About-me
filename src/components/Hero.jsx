@@ -77,7 +77,6 @@ export default function Hero({ onOpenSimulator }) {
             </h1>
 
             <h2 className="hero-subtitle">
-              Engineering{' '}
               <span className="hero-typewriter-wrapper">
                 {text}
                 <span className="hero-typewriter-cursor" />

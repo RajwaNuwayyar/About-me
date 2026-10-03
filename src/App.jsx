@@ -79,10 +79,10 @@ export default function App() {
       {/* Main Content Flow */}
       <main>
         <Hero onOpenSimulator={scrollToSimulator} />
-        <RobotLab />
+        <TerminalWidget onThemeChange={handleThemeChange} />
         <Projects />
         <SkillsMatrix />
-        <TerminalWidget onThemeChange={handleThemeChange} />
+        <RobotLab />
         <Experience />
         <Contact />
       </main>
