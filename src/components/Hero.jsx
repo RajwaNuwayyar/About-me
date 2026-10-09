@@ -89,15 +89,6 @@ export default function Hero({ onOpenSimulator }) {
 
             {/* CTAs */}
             <div className="hero-cta-group">
-              <a
-                href="#projects"
-                className="btn btn-primary"
-                onClick={() => soundFx.click()}
-              >
-                <span>{language === 'id' ? 'Jelajahi Proyek' : 'Explore Projects'}</span>
-                <ArrowRight size={17} />
-              </a>
-
               <button
                 className="btn btn-primary"
                 onClick={() => {

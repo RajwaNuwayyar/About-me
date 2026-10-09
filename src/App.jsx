@@ -49,7 +49,7 @@ export default function App() {
   }, []);
 
   const scrollToSimulator = () => {
-    const el = document.getElementById('robotics');
+    const el = document.getElementById('projects');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
